@@ -2,7 +2,7 @@
 
 #### Overview
 
-The Samsung Gear Portal Data Extraction code is a demonstration of data analytics and engineering abilities, showcasing techniques such as data mining and ETL (Extract, Transform, Load). This code addresses the issue of manual data extraction from the Samsung Gear Portal, specifically regarding the last login time. By automating the data extraction and transformation process, it streamlines the process of generating reports and provides personal usage benefits.
+The Samsung Gear Portal Data Extraction code is a demonstration of data mining and ETL (Extract, Transform, Load) operations. This code addresses the issue of manual data extraction from the Samsung Gear Portal, specifically regarding the last login time. By automating the data extraction and transformation process, it streamlines the process of generating reports and provides personal usage benefits.
 
 #### Problem Statement
 
