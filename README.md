@@ -2,7 +2,7 @@
 
 #### Overview
 
-The Samsung Gear Portal Data Extraction code is a demonstration of data mining and ETL (Extract, Transform, Load) operations. This code addresses the issue of manual data extraction from the Samsung Gear Portal, specifically regarding the last login time. By automating the data extraction and transformation process, it streamlines the process of generating reports and provides personal usage benefits.
+The Samsung Gear Portal Data Extraction code is a demonstration of data mining, ETL (Extract, Transform, Load) operations, creation and insertion of data into a MySQL database and data analysis of data. This code addresses the issue of manual data extraction from the Samsung Gear Portal, specifically regarding the last login time. By automating the data extraction and transformation process, it streamlines the process of generating reports and provides personal usage benefits.
 
 #### Problem Statement
 
@@ -10,12 +10,17 @@ The Samsung Gear Portal lacks the functionality to export user data, including t
 
 #### Solution
 
-This code automates the data extraction process from the Samsung Gear Portal and performs the following steps:
+This project offers an end-to-end solution by combining JavaScript, Python and MySQL database to automate the data extraction and analytics process:
 
-1. Extracts the total number of users from the web page using data mining techniques.
-2. Sets the select element value to display all rows for comprehensive data retrieval.
-3. Calculates the "Days Since Last Login" for each user based on their login timestamp.
-4. Generates a CSV file with the extracted and transformed data, ready for analysis and reporting.
+Data Mining with JavaScript: JavaScript is used to extract data directly from the Samsung Gear Portal webpage. Leveraging the browser as a JavaScript runtime environment, the code dynamically navigates the webpage, retrieves the necessary data elements, and captures the required information, including user details and last login timestamps.
+
+Exporting to CSV: The extracted data is then processed and formatted using JavaScript to generate a CSV file. This file serves as an intermediate data storage format, enabling seamless integration with Python for further analysis.
+
+Data Analytics with Python: After the data is exported to CSV, the Python code takes over for further processing, transformation, and analysis. It connects to a MySQL database, creates tables for storing user information and login activity, and inserts the extracted data. Python's rich ecosystem of libraries, such as pandas and matplotlib, can be utilized to perform in-depth data analysis, generate reports, and create visualizations.
+
+Data Engineering and Visualization: With the data stored in a MySQL database, you can leverage your data engineering skills to optimize database operations, ensure data integrity, and create efficient queries. Additionally, you can showcase your data visualization skills by using libraries like seaborn or plotly to create insightful visualizations and interactive dashboards that provide a deeper understanding of user behavior and trends.
+
+By combining JavaScript for data mining on the webpage and Python for data processing, analysis, and visualisation, this solution demonstrates a comprehensive approach to extracting, transforming, and analysing data from the Samsung Gear Portal.
 
 
 #### Usage and Personal Benefits
