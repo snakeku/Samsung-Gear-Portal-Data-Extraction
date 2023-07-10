@@ -16,7 +16,7 @@ downloadCSVFile(1000);
 
 function getTotalCount() {
     // This function extracts the total user count from the web page and
-    // returns the number of total user count.
+    // returns the number of total user count.time
     
   // Find the element by its ID
   var infoElement = document.getElementById('liveMapDataTable_info');
@@ -53,7 +53,6 @@ function setSelectElementValue(totalCount) {
 
 function calculateDaysSinceLastLogin(inputTimeStamp){
     // This function calculates and return the days since the last user login.
-    // it will return a string representation
     
     // Get the current date
     var currentDate = new Date();
@@ -66,11 +65,20 @@ function calculateDaysSinceLastLogin(inputTimeStamp){
     var timeDifference = currentDate.getTime() - lastLoginDate.getTime();
     var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
     
-    if (daysDifference == 0){
-        return 'Last Login Today';
-    }else{
-        return daysDifference + ' days ago';
-    }
+    return daysDifference;
+}
+
+function sqlDateFormatter(inputTimeStamp){
+    // This function takes in a timestamp from the server and returns a date format that is SQL date format.
+    
+    const dateString = inputTimeStamp;
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const sqlDateFormat = `${year}-${month}-${day}`;
+    
+    return sqlDateFormat;
 }
 
 function createLocalCSV(){
@@ -83,7 +91,7 @@ function createLocalCSV(){
     // Initialize an empty string to store the CSV data
     var csvData = '';
 
-    csvData += 'Name' + ',' + 'Email' + ',' + 'Date' + ',' + 'Timestamp' + ',' + 'Lat' + ',' + 'Long' + ',' + 'LastLogin Days Ago' + '\n';
+    csvData += 'Name' + ',' + 'Email' + ',' + 'Date' + ',' + 'Latitude' + ',' + 'Longitude' + ',' + 'LastLogin in Days' + '\n';
 
     // Iterate over the table rows, excluding the header row
     for (var i = 1; i < table.rows.length; i++) {
@@ -95,11 +103,12 @@ function createLocalCSV(){
       var formattedName = '"' + name + '"';
       var email = row.cells[1].textContent;
       var timestamp = row.cells[2].textContent;
+      var formattedDate = sqlDateFormatter(timestamp);
       var latLong = row.cells[3].textContent;
       var lastLogin = calculateDaysSinceLastLogin(timestamp);
 
       // Append the row data to the CSV string
-      csvData += formattedName + ',' + email + ',' + timestamp + ',' + latLong + ',' + lastLogin + '\n';
+      csvData += formattedName + ',' + email + ',' + formattedDate + ',' + latLong + ',' + lastLogin + '\n';
     }
 
     // Create a Blob object with the CSV data
@@ -120,7 +129,7 @@ function downloadCSVFile(delay) {
       link.href = URL.createObjectURL(blob);
       
       // Set the filename for the download
-      link.download = 'data.csv';
+      link.download = 'users_data.csv';
       
       // Programmatically click the link to trigger the download
       link.click();
