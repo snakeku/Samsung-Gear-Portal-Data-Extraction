@@ -17,6 +17,14 @@ The Samsung Gear Portal Data Extraction and Analytics project is designed to sho
 - Insightful Data Visualization: Matplotlib is utilised to create visually appealing and informative charts, graphs, and histograms. These visualizations enhance data understanding and facilitate effective communication of findings to stakeholders.
 - Demonstration of Data Engineering and Analytics Skills: The project showcases a range of skills including web scraping, data migration and transformation, SQL query optimization, and data visualization techniques. These skills are highly valuable in data engineering and analytics roles.
 
+# Data Pipeline Execution Order
+
+1. Run web data extraction: Execute the JavaScript file `web_data_extraction.js` to perform data mining on a web page and export the data to a CSV file. This step collects the necessary data for further processing and analysis.
+
+2. Run data migration: Execute the Python file `data_migration.py` to migrate and transform the extracted data into a MySQL database. This step involves creating and populating two tables in the database, ensuring data integrity and handling any necessary data validation.
+
+3. Run data visualization: Execute the Python file `data_visualization.py` to perform data analytics and visualization on the migrated data. This step involves querying the MySQL database to retrieve the required data and using Matplotlib to create visualizations such as bar charts or histograms.
+
 
 ## Conclusion
 The Samsung Gear Portal Data Extraction and Analytics project demonstrates the ability to extract, migrate, transform, analyze, and visualize data from the Samsung Gear Portal using a combination of JavaScript, Python, MySQL, and Matplotlib. By leveraging these technologies, the project showcases essential data engineering and analytics skills required for roles in the industry. It provides a strong foundation for working with real-world data, deriving meaningful insights, and effectively communicating findings to stakeholders.
